@@ -394,10 +394,8 @@ gtkhtml_editor_private_dispose (GtkhtmlEditor *editor)
 
 	g_hash_table_remove_all (priv->available_spell_checkers);
 
-	g_list_foreach (
-		priv->active_spell_checkers,
-		(GFunc) g_object_unref, NULL);
-	g_list_free (priv->active_spell_checkers);
+	g_list_free_full (
+    priv->active_spell_checkers, g_object_unref);
 	priv->active_spell_checkers = NULL;
 
 	DISPOSE (priv->main_menu);

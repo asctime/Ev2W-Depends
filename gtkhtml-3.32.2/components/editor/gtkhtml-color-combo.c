@@ -355,8 +355,7 @@ color_combo_palette_changed_cb (GtkhtmlColorCombo *combo)
 	}
 
 	/* Delete any remaining list items. */
-	g_slist_foreach (list, (GFunc) gdk_color_free, NULL);
-	g_slist_free (list);
+	g_slist_free_full (list, (GDestroyNotify) gdk_color_free);
 }
 
 static void
