@@ -34,9 +34,9 @@
 #include "table.h"
 #include "utils.h"
 
-static void html_a11y_table_class_init    (HTMLA11YTableClass *klass);
-static void html_a11y_table_init          (HTMLA11YTable *a11y_table);
-static void atk_table_interface_init      (AtkTableIface *iface);
+static void html_a11y_table_class_init    (HTMLA11YTableClass *klass, gpointer class_data);
+static void html_a11y_table_init          (HTMLA11YTable *a11y_table, gpointer class_data);
+static void atk_table_interface_init      (AtkTableIface *iface, gpointer class_data);
 
 static AtkObject * html_a11y_table_ref_at (AtkTable *table, gint row, gint column);
 static gint html_a11y_table_get_index_at (AtkTable *table, gint row, gint column);
@@ -84,7 +84,7 @@ html_a11y_table_get_type (void)
 }
 
 static void
-atk_table_interface_init (AtkTableIface *iface)
+atk_table_interface_init (AtkTableIface *iface, gpointer class_data)
 {
 	g_return_if_fail (iface != NULL);
 
@@ -116,7 +116,7 @@ html_a11y_table_initialize (AtkObject *obj, gpointer data)
 }
 
 static void
-html_a11y_table_class_init (HTMLA11YTableClass *klass)
+html_a11y_table_class_init (HTMLA11YTableClass *klass, gpointer class_data)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 	AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
@@ -128,7 +128,7 @@ html_a11y_table_class_init (HTMLA11YTableClass *klass)
 }
 
 static void
-html_a11y_table_init (HTMLA11YTable *a11y_table)
+html_a11y_table_init (HTMLA11YTable *a11y_table, gpointer class_data)
 {
 }
 

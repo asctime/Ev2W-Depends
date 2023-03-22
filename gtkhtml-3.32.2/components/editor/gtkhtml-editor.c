@@ -789,7 +789,7 @@ editor_select_all (GtkhtmlEditor *editor)
 }
 
 static void
-editor_class_init (GtkhtmlEditorClass *class)
+editor_class_init (GtkhtmlEditorClass *class, gpointer class_data)
 {
 	GObjectClass *object_class;
 	GtkWidgetClass *widget_class;
@@ -961,7 +961,7 @@ editor_class_init (GtkhtmlEditorClass *class)
 }
 
 static void
-editor_init (GtkhtmlEditor *editor)
+editor_init (GtkhtmlEditor *editor, gpointer class_data)
 {
 	editor->priv = GTKHTML_EDITOR_GET_PRIVATE (editor);
 	editor->vbox = g_object_ref_sink (gtk_vbox_new (FALSE, 0));

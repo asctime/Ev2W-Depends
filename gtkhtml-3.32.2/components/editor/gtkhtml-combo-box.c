@@ -298,7 +298,7 @@ combo_box_changed (GtkComboBox *combo_box)
 }
 
 static void
-combo_box_class_init (GtkhtmlComboBoxClass *class)
+combo_box_class_init (GtkhtmlComboBoxClass *class, gpointer class_data)
 {
 	GObjectClass *object_class;
 	GtkComboBoxClass *combo_box_class;
@@ -327,7 +327,7 @@ combo_box_class_init (GtkhtmlComboBoxClass *class)
 }
 
 static void
-combo_box_init (GtkhtmlComboBox *combo_box)
+combo_box_init (GtkhtmlComboBox *combo_box, gpointer class_data)
 {
 	GtkCellRenderer *renderer;
 

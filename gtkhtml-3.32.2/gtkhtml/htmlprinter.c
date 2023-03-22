@@ -584,13 +584,13 @@ get_page_height (HTMLPainter *painter, HTMLEngine *e)
 }
 
 static void
-html_printer_init (HTMLPrinter *printer)
+html_printer_init (HTMLPrinter *printer, gpointer class_data)
 {
 	html_printer_set_scale (printer, 1.0);
 }
 
 static void
-html_printer_class_init (HTMLPrinterClass *class)
+html_printer_class_init (HTMLPrinterClass *class, gpointer class_data)
 {
 	GObjectClass *object_class;
 	HTMLPainterClass *painter_class;

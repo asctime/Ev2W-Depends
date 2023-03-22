@@ -30,10 +30,10 @@
 #include "html.h"
 #include "hyperlink.h"
 
-static void html_a11y_hyper_link_class_init    (HTMLA11YHyperLinkClass *klass);
-static void html_a11y_hyper_link_init          (HTMLA11YHyperLink *a11y_hyper_link);
+static void html_a11y_hyper_link_class_init    (HTMLA11YHyperLinkClass *klass, gpointer class_data);
+static void html_a11y_hyper_link_init          (HTMLA11YHyperLink *a11y_hyper_link, gpointer class_data);
 
-static void atk_action_interface_init (AtkActionIface *iface);
+static void atk_action_interface_init (AtkActionIface *iface, gpointer class_data);
 
 static gboolean html_a11y_hyper_link_do_action (AtkAction *action, gint i);
 static gint html_a11y_hyper_link_get_n_actions (AtkAction *action);
@@ -76,7 +76,7 @@ html_a11y_hyper_link_get_type (void)
 }
 
 static void
-atk_action_interface_init (AtkActionIface *iface)
+atk_action_interface_init (AtkActionIface *iface, gpointer class_data)
 {
 	g_return_if_fail (iface != NULL);
 
@@ -117,7 +117,7 @@ html_a11y_hyper_link_get_end_index (AtkHyperlink *link)
 }
 
 static void
-html_a11y_hyper_link_class_init (HTMLA11YHyperLinkClass *klass)
+html_a11y_hyper_link_class_init (HTMLA11YHyperLinkClass *klass, gpointer class_data)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 	AtkHyperlinkClass *atk_hyperlink_class = ATK_HYPERLINK_CLASS (klass);
@@ -129,7 +129,7 @@ html_a11y_hyper_link_class_init (HTMLA11YHyperLinkClass *klass)
 }
 
 static void
-html_a11y_hyper_link_init (HTMLA11YHyperLink *a11y_hyper_link)
+html_a11y_hyper_link_init (HTMLA11YHyperLink *a11y_hyper_link, gpointer class_data)
 {
 	a11y_hyper_link->description = NULL;
 }

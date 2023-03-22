@@ -31,9 +31,9 @@
 
 #include <glib/gi18n-lib.h>
 
-static void html_a11y_image_class_init    (HTMLA11YImageClass *klass);
-static void html_a11y_image_init          (HTMLA11YImage *a11y_image);
-static void atk_image_interface_init      (AtkImageIface *iface);
+static void html_a11y_image_class_init    (HTMLA11YImageClass *klass, gpointer class_data);
+static void html_a11y_image_init          (HTMLA11YImage *a11y_image, gpointer class_data);
+static void atk_image_interface_init      (AtkImageIface *iface, gpointer class_data);
 
 static G_CONST_RETURN gchar * html_a11y_image_get_name (AtkObject *accessible);
 
@@ -76,7 +76,7 @@ html_a11y_image_get_type (void)
 }
 
 static void
-atk_image_interface_init (AtkImageIface *iface)
+atk_image_interface_init (AtkImageIface *iface, gpointer class_data)
 {
 	g_return_if_fail (iface != NULL);
 
@@ -101,7 +101,7 @@ html_a11y_image_initialize (AtkObject *obj, gpointer data)
 }
 
 static void
-html_a11y_image_class_init (HTMLA11YImageClass *klass)
+html_a11y_image_class_init (HTMLA11YImageClass *klass, gpointer class_data)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 	AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
@@ -114,7 +114,7 @@ html_a11y_image_class_init (HTMLA11YImageClass *klass)
 }
 
 static void
-html_a11y_image_init (HTMLA11YImage *a11y_image)
+html_a11y_image_init (HTMLA11YImage *a11y_image, gpointer class_data)
 {
 }
 

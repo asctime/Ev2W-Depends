@@ -102,8 +102,8 @@
 
 /* #define CHECK_CURSOR */
 
-static void      html_engine_class_init       (HTMLEngineClass     *klass);
-static void      html_engine_init             (HTMLEngine          *engine);
+static void      html_engine_class_init       (HTMLEngineClass     *klass, gpointer class_data);
+static void      html_engine_init             (HTMLEngine          *engine, gpointer class_data);
 static gboolean  html_engine_timer_event      (HTMLEngine          *e);
 static gboolean  html_engine_update_event     (HTMLEngine          *e);
 static void      html_engine_queue_redraw_all (HTMLEngine *e);
@@ -4259,7 +4259,7 @@ html_engine_set_property (GObject *object, guint id, const GValue *value, GParam
 }
 
 static void
-html_engine_class_init (HTMLEngineClass *klass)
+html_engine_class_init (HTMLEngineClass *klass, gpointer class_data)
 {
 	GObjectClass *object_class;
 	GParamSpec *pspec;
@@ -4381,7 +4381,7 @@ html_engine_class_init (HTMLEngineClass *klass)
 }
 
 static void
-html_engine_init (HTMLEngine *engine)
+html_engine_init (HTMLEngine *engine, gpointer class_data)
 {
 	engine->clue = engine->parser_clue = NULL;
 
@@ -6076,17 +6076,18 @@ html_engine_replace_do (HTMLEngine *e, HTMLReplaceQueryAnswer answer)
 		while (html_engine_search_next (e))
 			replace (e);
 		html_undo_level_end (e->undo, e);
+    break;
 	case RQA_Cancel:
 		html_replace_destroy (e->replace_info);
 		e->replace_info = NULL;
 		html_engine_disable_selection (e);
 		finished = TRUE;
 		break;
-
 	case RQA_Replace:
 		html_undo_level_begin (e->undo, "Replace", "Revert replace");
 		replace (e);
 		html_undo_level_end (e->undo, e);
+    break;
 	case RQA_Next:
 		finished = !html_engine_search_next (e);
 		if (finished)

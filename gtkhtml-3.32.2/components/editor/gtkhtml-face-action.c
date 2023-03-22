@@ -213,7 +213,7 @@ face_action_set_current_face (GtkhtmlFaceChooser *chooser,
 }
 
 static void
-face_action_class_init (GtkhtmlFaceActionClass *class)
+face_action_class_init (GtkhtmlFaceActionClass *class, gpointer class_data)
 {
 	GObjectClass *object_class;
 	GtkActionClass *action_class;
@@ -239,14 +239,14 @@ face_action_class_init (GtkhtmlFaceActionClass *class)
 }
 
 static void
-face_action_iface_init (GtkhtmlFaceChooserIface *iface)
+face_action_iface_init (GtkhtmlFaceChooserIface *iface, gpointer class_data)
 {
 	iface->get_current_face = face_action_get_current_face;
 	iface->set_current_face = face_action_set_current_face;
 }
 
 static void
-face_action_init (GtkhtmlFaceAction *action)
+face_action_init (GtkhtmlFaceAction *action, gpointer class_data)
 {
 	action->priv = GTKHTML_FACE_ACTION_GET_PRIVATE (action);
 }

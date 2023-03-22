@@ -59,7 +59,7 @@ color_palette_finalize (GObject *object)
 }
 
 static void
-color_palette_class_init (GtkhtmlColorPaletteClass *class)
+color_palette_class_init (GtkhtmlColorPaletteClass *class, gpointer class_data)
 {
 	GObjectClass *object_class;
 
@@ -79,7 +79,7 @@ color_palette_class_init (GtkhtmlColorPaletteClass *class)
 }
 
 static void
-color_palette_init (GtkhtmlColorPalette *palette)
+color_palette_init (GtkhtmlColorPalette *palette, gpointer class_data)
 {
 	GHashTable *index;
 

@@ -112,7 +112,7 @@ face_chooser_menu_set_current_face (GtkhtmlFaceChooser *chooser,
 }
 
 static void
-face_chooser_menu_class_init (GtkhtmlFaceChooserMenuClass *class)
+face_chooser_menu_class_init (GtkhtmlFaceChooserMenuClass *class, gpointer class_data)
 {
 	GObjectClass *object_class;
 
@@ -128,14 +128,14 @@ face_chooser_menu_class_init (GtkhtmlFaceChooserMenuClass *class)
 }
 
 static void
-face_chooser_menu_iface_init (GtkhtmlFaceChooserIface *iface)
+face_chooser_menu_iface_init (GtkhtmlFaceChooserIface *iface, gpointer class_data)
 {
 	iface->get_current_face = face_chooser_menu_get_current_face;
 	iface->set_current_face = face_chooser_menu_set_current_face;
 }
 
 static void
-face_chooser_menu_init (GtkhtmlFaceChooserMenu *chooser_menu)
+face_chooser_menu_init (GtkhtmlFaceChooserMenu *chooser_menu, gpointer class_data)
 {
 	GtkhtmlFaceChooser *chooser;
 	GList *list, *iter;

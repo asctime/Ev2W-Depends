@@ -157,7 +157,7 @@ color_swatch_size_allocate (GtkWidget *widget,
 }
 
 static void
-color_swatch_class_init (GtkhtmlColorSwatchClass *class)
+color_swatch_class_init (GtkhtmlColorSwatchClass *class, gpointer class_data)
 {
 	GObjectClass *object_class;
 	GtkWidgetClass *widget_class;
@@ -197,7 +197,7 @@ color_swatch_class_init (GtkhtmlColorSwatchClass *class)
 }
 
 static void
-color_swatch_init (GtkhtmlColorSwatch *swatch)
+color_swatch_init (GtkhtmlColorSwatch *swatch, gpointer class_data)
 {
 	GtkWidget *container;
 	GtkWidget *widget;

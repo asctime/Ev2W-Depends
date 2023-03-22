@@ -179,7 +179,7 @@ gchar *					  html_tokenizer_convert_entity(gchar * token);
 static GObjectClass *parent_class = NULL;
 
 static void
-html_tokenizer_class_init (HTMLTokenizerClass *klass)
+html_tokenizer_class_init (HTMLTokenizerClass *klass, gpointer class_data)
 {
 	GObjectClass *object_class = (GObjectClass *) klass;
 
@@ -242,7 +242,7 @@ html_tokenizer_class_init (HTMLTokenizerClass *klass)
 }
 
 static void
-html_tokenizer_init (HTMLTokenizer *t)
+html_tokenizer_init (HTMLTokenizer *t, gpointer class_data)
 {
 	struct _HTMLTokenizerPrivate *p;
 

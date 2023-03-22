@@ -24,8 +24,8 @@
 #include "htmlclueflow.h"
 #include "paragraph.h"
 
-static void html_a11y_paragraph_class_init (HTMLA11YParagraphClass *klass);
-static void html_a11y_paragraph_init       (HTMLA11YParagraph *a11y_paragraph);
+static void html_a11y_paragraph_class_init (HTMLA11YParagraphClass *klass, gpointer class_data);
+static void html_a11y_paragraph_init       (HTMLA11YParagraph *a11y_paragraph, gpointer class_data);
 
 static AtkObjectClass *parent_class = NULL;
 
@@ -70,7 +70,7 @@ html_a11y_paragraph_initialize (AtkObject *obj, gpointer data)
 }
 
 static void
-html_a11y_paragraph_class_init (HTMLA11YParagraphClass *klass)
+html_a11y_paragraph_class_init (HTMLA11YParagraphClass *klass, gpointer class_data)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 	AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
@@ -82,7 +82,7 @@ html_a11y_paragraph_class_init (HTMLA11YParagraphClass *klass)
 }
 
 static void
-html_a11y_paragraph_init (HTMLA11YParagraph *a11y_paragraph)
+html_a11y_paragraph_init (HTMLA11YParagraph *a11y_paragraph, gpointer class_data)
 {
 }
 

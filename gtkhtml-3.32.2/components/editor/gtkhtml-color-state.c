@@ -184,7 +184,7 @@ color_state_finalize (GObject *object)
 }
 
 static void
-color_state_class_init (GtkhtmlColorStateClass *class)
+color_state_class_init (GtkhtmlColorStateClass *class, gpointer class_data)
 {
 	GObjectClass *object_class;
 
@@ -260,7 +260,7 @@ color_state_class_init (GtkhtmlColorStateClass *class)
 }
 
 static void
-color_state_init (GtkhtmlColorState *state)
+color_state_init (GtkhtmlColorState *state, gpointer class_data)
 {
 	GtkhtmlColorPalette *palette;
 

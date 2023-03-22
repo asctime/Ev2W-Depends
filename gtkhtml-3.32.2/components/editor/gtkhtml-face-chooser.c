@@ -82,7 +82,7 @@ enum {
 static guint signals[LAST_SIGNAL];
 
 static void
-face_chooser_class_init (GtkhtmlFaceChooserIface *iface)
+face_chooser_class_init (GtkhtmlFaceChooserIface *iface, gpointer class_data)
 {
 	g_object_interface_install_property (
 		iface,

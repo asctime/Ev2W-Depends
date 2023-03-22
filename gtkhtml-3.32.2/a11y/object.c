@@ -33,8 +33,8 @@
 #include "text.h"
 #include <glib/gi18n-lib.h>
 
-static void gtk_html_a11y_class_init (GtkHTMLA11YClass *klass);
-static void gtk_html_a11y_init       (GtkHTMLA11Y *a11y);
+static void gtk_html_a11y_class_init (GtkHTMLA11YClass *klass, gpointer class_data);
+static void gtk_html_a11y_init       (GtkHTMLA11Y *a11y, gpointer class_data);
 
 static GtkAccessibleClass *parent_class = NULL;
 
@@ -87,6 +87,7 @@ do_action (AtkAction * action, gint i)
 	switch (i) {
 	case 0:
 		gtk_widget_grab_focus (widget);
+    break;
 	default:
 		return_value = FALSE;
 		break;
@@ -95,7 +96,7 @@ do_action (AtkAction * action, gint i)
 }
 
 static void
-atk_action_interface_init (AtkActionIface *iface)
+atk_action_interface_init (AtkActionIface *iface, gpointer class_data)
 {
 	g_return_if_fail (iface != NULL);
 
@@ -258,7 +259,7 @@ gtk_html_a11y_get_name (AtkObject *obj)
 }
 
 static void
-gtk_html_a11y_class_init (GtkHTMLA11YClass *klass)
+gtk_html_a11y_class_init (GtkHTMLA11YClass *klass, gpointer class_data)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 	AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
@@ -274,7 +275,7 @@ gtk_html_a11y_class_init (GtkHTMLA11YClass *klass)
 }
 
 static void
-gtk_html_a11y_init (GtkHTMLA11Y *a11y)
+gtk_html_a11y_init (GtkHTMLA11Y *a11y, gpointer class_data)
 {
 }
 

@@ -26,8 +26,8 @@
 #include "gtkhtml-embedded.h"
 #include "htmlengine.h"
 
-static void gtk_html_embedded_class_init (GtkHTMLEmbeddedClass *class);
-static void gtk_html_embedded_init       (GtkHTMLEmbedded *gspaper);
+static void gtk_html_embedded_class_init (GtkHTMLEmbeddedClass *class, gpointer class_data);
+static void gtk_html_embedded_init       (GtkHTMLEmbedded *gspaper, gpointer class_data);
 
 static void gtk_html_embedded_size_request (GtkWidget *widget, GtkRequisition *requisition);
 static void gtk_html_embedded_size_allocate (GtkWidget *widget, GtkAllocation *allocation);
@@ -157,7 +157,7 @@ draw_gdk_signal_marshaller (GClosure     *closure,
 }
 
 static void
-gtk_html_embedded_class_init (GtkHTMLEmbeddedClass *class)
+gtk_html_embedded_class_init (GtkHTMLEmbeddedClass *class, gpointer class_data)
 {
 	GObjectClass *gobject_class;
 	GtkObjectClass *object_class;
@@ -248,7 +248,7 @@ gtk_html_embedded_size_allocate (GtkWidget *widget, GtkAllocation *allocation)
 }
 
 static void
-gtk_html_embedded_init (GtkHTMLEmbedded *ge)
+gtk_html_embedded_init (GtkHTMLEmbedded *ge, gpointer class_data)
 {
 	ge->descent = 0;
 	ge->params  = g_hash_table_new (g_str_hash, g_str_equal);

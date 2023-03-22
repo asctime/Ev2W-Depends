@@ -44,10 +44,10 @@
 #include "text.h"
 #include "hyperlink.h"
 
-static void html_a11y_text_class_init    (HTMLA11YTextClass *klass);
-static void html_a11y_text_init          (HTMLA11YText *a11y_text);
-static void atk_component_interface_init (AtkComponentIface *iface);
-static void atk_text_interface_init      (AtkTextIface *iface);
+static void html_a11y_text_class_init    (HTMLA11YTextClass *klass, gpointer class_data);
+static void html_a11y_text_init          (HTMLA11YText *a11y_text, gpointer class_data);
+static void atk_component_interface_init (AtkComponentIface *iface, gpointer class_data);
+static void atk_text_interface_init      (AtkTextIface *iface, gpointer class_data);
 
 static void html_a11y_text_get_extents   (AtkComponent *component,
 					  gint *x, gint *y, gint *width, gint *height, AtkCoordType coord_type);
@@ -77,14 +77,14 @@ static gint html_a11y_text_get_offset_at_point (AtkText *text, gint x, gint y,
 					AtkCoordType coords);
 
 /* Hyperlink interface */
-static void atk_hyper_text_interface_init (AtkHypertextIface *iface);
+static void atk_hyper_text_interface_init (AtkHypertextIface *iface, gpointer class_data);
 
 static AtkHyperlink * html_a11y_text_get_link (AtkHypertext *hypertext, gint link_index);
 static gint html_a11y_text_get_n_links (AtkHypertext *hypertext);
 static gint html_a11y_text_get_link_index (AtkHypertext *hypertext, gint char_index);
 
 /* Editable text interface. */
-static void	atk_editable_text_interface_init      (AtkEditableTextIface *iface);
+static void	atk_editable_text_interface_init      (AtkEditableTextIface *iface, gpointer class_data);
 static void	html_a11y_text_set_text_contents	(AtkEditableText      *text,
 							 const gchar          *string);
 static void	html_a11y_text_insert_text	(AtkEditableText      *text,
@@ -139,7 +139,7 @@ do_action (AtkAction * action, gint i)
 }
 
 static void
-atk_action_interface_init (AtkActionIface *iface)
+atk_action_interface_init (AtkActionIface *iface, gpointer class_data)
 {
         g_return_if_fail (iface != NULL);
 
@@ -210,7 +210,7 @@ html_a11y_text_get_type (void)
 }
 
 static void
-atk_component_interface_init (AtkComponentIface *iface)
+atk_component_interface_init (AtkComponentIface *iface, gpointer class_data)
 {
 	g_return_if_fail (iface != NULL);
 
@@ -220,7 +220,7 @@ atk_component_interface_init (AtkComponentIface *iface)
 }
 
 static void
-atk_text_interface_init (AtkTextIface *iface)
+atk_text_interface_init (AtkTextIface *iface, gpointer class_data)
 {
 	g_return_if_fail (iface != NULL);
 
@@ -278,7 +278,7 @@ html_a11y_text_initialize (AtkObject *obj, gpointer data)
 }
 
 static void
-html_a11y_text_class_init (HTMLA11YTextClass *klass)
+html_a11y_text_class_init (HTMLA11YTextClass *klass, gpointer class_data)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 	AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
@@ -291,7 +291,7 @@ html_a11y_text_class_init (HTMLA11YTextClass *klass)
 }
 
 static void
-html_a11y_text_init (HTMLA11YText *a11y_text)
+html_a11y_text_init (HTMLA11YText *a11y_text, gpointer class_data)
 {
 }
 
@@ -983,7 +983,7 @@ html_a11y_text_get_character_extents (AtkText *text, gint offset,
 }
 
 static void
-atk_editable_text_interface_init (AtkEditableTextIface *iface)
+atk_editable_text_interface_init (AtkEditableTextIface *iface, gpointer class_data)
 {
 	g_return_if_fail (iface != NULL);
 
@@ -1134,7 +1134,7 @@ html_a11y_text_paste_text	(AtkEditableText *text,
 }
 
 static void
-atk_hyper_text_interface_init (AtkHypertextIface *iface)
+atk_hyper_text_interface_init (AtkHypertextIface *iface, gpointer class_data)
 {
 	g_return_if_fail (iface != NULL);
 

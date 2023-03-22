@@ -1547,7 +1547,9 @@ get_start_tag (HTMLClueFlow *self)
 		return "PRE";
 	case HTML_CLUEFLOW_STYLE_LIST_ITEM:
 		g_warning ("This should not be reached");
-	case HTML_CLUEFLOW_STYLE_NORMAL:
+    return NULL;
+ 	case HTML_CLUEFLOW_STYLE_NORMAL:
+    return NULL;
 	default:
 		return NULL;
 	}

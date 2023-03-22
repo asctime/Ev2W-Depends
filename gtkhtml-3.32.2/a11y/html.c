@@ -33,10 +33,10 @@
 #include "object.h"
 #include "utils.h"
 
-static void html_a11y_class_init (HTMLA11YClass *klass);
-static void html_a11y_init       (HTMLA11Y *a11y_paragraph);
+static void html_a11y_class_init (HTMLA11YClass *klass, gpointer class_data);
+static void html_a11y_init       (HTMLA11Y *a11y_paragraph, gpointer class_data);
 
-static void atk_component_interface_init (AtkComponentIface *iface);
+static void atk_component_interface_init (AtkComponentIface *iface, gpointer class_data);
 static AtkObject*  html_a11y_get_parent (AtkObject *accessible);
 static gint html_a11y_get_index_in_parent (AtkObject *accessible);
 static AtkStateSet * html_a11y_ref_state_set (AtkObject *accessible);
@@ -78,7 +78,7 @@ html_a11y_get_type (void)
 }
 
 static void
-atk_component_interface_init (AtkComponentIface *iface)
+atk_component_interface_init (AtkComponentIface *iface, gpointer class_data)
 {
 	g_return_if_fail (iface != NULL);
 
@@ -115,7 +115,7 @@ html_a11y_initialize (AtkObject *obj, gpointer data)
 }
 
 static void
-html_a11y_class_init (HTMLA11YClass *klass)
+html_a11y_class_init (HTMLA11YClass *klass, gpointer class_data)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 	AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
@@ -133,7 +133,7 @@ html_a11y_class_init (HTMLA11YClass *klass)
 }
 
 static void
-html_a11y_init (HTMLA11Y *a11y_paragraph)
+html_a11y_init (HTMLA11Y *a11y_paragraph, gpointer class_data)
 {
 }
 

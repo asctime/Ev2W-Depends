@@ -26,7 +26,7 @@ gtk_html_a11y_factory_create_accessible (GObject *obj)
 }
 
 static void
-gtk_html_a11y_factory_class_init (AtkObjectFactoryClass *klass)
+gtk_html_a11y_factory_class_init (AtkObjectFactoryClass *klass, gpointer class_data)
 {
 	klass->create_accessible   = gtk_html_a11y_factory_create_accessible;
 	klass->get_accessible_type = gtk_html_a11y_factory_get_accessible_type;

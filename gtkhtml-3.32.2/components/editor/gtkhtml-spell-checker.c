@@ -179,7 +179,7 @@ spell_checker_finalize (GObject *object)
 }
 
 static void
-spell_checker_class_init (GtkhtmlSpellCheckerClass *class)
+spell_checker_class_init (GtkhtmlSpellCheckerClass *class, gpointer class_data)
 {
 	GObjectClass *object_class;
 
@@ -239,7 +239,7 @@ spell_checker_class_init (GtkhtmlSpellCheckerClass *class)
 }
 
 static void
-spell_checker_init (GtkhtmlSpellChecker *checker)
+spell_checker_init (GtkhtmlSpellChecker *checker, gpointer class_data)
 {
 	checker->priv = GTKHTML_SPELL_CHECKER_GET_PRIVATE (checker);
 	checker->priv->broker = enchant_broker_init ();

@@ -199,10 +199,12 @@ html_shape_new (gchar *type_str, gchar *coords, gchar *url, gchar *target)
 		while (shape->coords->len < 4)
 			g_ptr_array_add (shape->coords,
 					 g_new0 (HTMLLength, 1));
+    break;
 	case HTML_SHAPE_CIRCLE:
 		while (shape->coords->len < 3)
 			g_ptr_array_add (shape->coords,
 					 g_new0 (HTMLLength, 1));
+    break;
 	case HTML_SHAPE_POLY:
 		if (shape->coords->len % 2)
 			g_ptr_array_add (shape->coords,

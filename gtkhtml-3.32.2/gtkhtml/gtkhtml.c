@@ -2893,7 +2893,7 @@ gtk_html_direction_changed (GtkWidget *widget, GtkTextDirection previous_dir)
 }
 
 static void
-gtk_html_class_init (GtkHTMLClass *klass)
+gtk_html_class_init (GtkHTMLClass *klass, gpointer class_data)
 {
 #ifdef USE_PROPS
 	GObjectClass      *gobject_class;
@@ -3502,7 +3502,7 @@ gtk_html_im_delete_surrounding_cb (GtkIMContext *slave, gint offset, gint n_char
 }
 
 static void
-gtk_html_init (GtkHTML* html)
+gtk_html_init (GtkHTML* html, gpointer class_data)
 {
 	gtk_widget_set_can_focus (GTK_WIDGET (html), TRUE);
 	gtk_widget_set_app_paintable (GTK_WIDGET (html), TRUE);

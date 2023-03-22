@@ -114,7 +114,7 @@ draw_shade_line (HTMLPainter *painter,
 }
 
 static void
-html_plain_painter_init (GObject *object)
+html_plain_painter_init (GObject *object, gpointer class_data)
 {
 }
 
@@ -140,7 +140,7 @@ get_page_height (HTMLPainter *painter, HTMLEngine *e)
 }
 
 static void
-html_plain_painter_class_init (GObjectClass *object_class)
+html_plain_painter_class_init (GObjectClass *object_class, gpointer class_data)
 {
 	HTMLPainterClass *painter_class;
 

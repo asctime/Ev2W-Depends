@@ -694,7 +694,7 @@ color_combo_popdown (GtkhtmlColorCombo *combo)
 }
 
 static void
-color_combo_class_init (GtkhtmlColorComboClass *class)
+color_combo_class_init (GtkhtmlColorComboClass *class, gpointer class_data)
 {
 	GObjectClass *object_class;
 	GtkWidgetClass *widget_class;
@@ -832,7 +832,7 @@ color_combo_class_init (GtkhtmlColorComboClass *class)
 }
 
 static void
-color_combo_init (GtkhtmlColorCombo *combo)
+color_combo_init (GtkhtmlColorCombo *combo, gpointer class_data)
 {
 	GtkhtmlColorState *state;
 	GtkWidget *toplevel;

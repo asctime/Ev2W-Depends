@@ -28,8 +28,8 @@
 #include "html.h"
 #include "cell.h"
 
-static void html_a11y_cell_class_init    (HTMLA11YCellClass *klass);
-static void html_a11y_cell_init          (HTMLA11YCell *a11y_cell);
+static void html_a11y_cell_class_init    (HTMLA11YCellClass *klass, gpointer class_data);
+static void html_a11y_cell_init          (HTMLA11YCell *a11y_cell, gpointer class_data);
 
 static AtkObjectClass *parent_class = NULL;
 
@@ -74,7 +74,7 @@ html_a11y_cell_initialize (AtkObject *obj, gpointer data)
 }
 
 static void
-html_a11y_cell_class_init (HTMLA11YCellClass *klass)
+html_a11y_cell_class_init (HTMLA11YCellClass *klass, gpointer class_data)
 {
 	GObjectClass *gobject_class = G_OBJECT_CLASS (klass);
 	AtkObjectClass *atk_class = ATK_OBJECT_CLASS (klass);
@@ -86,7 +86,7 @@ html_a11y_cell_class_init (HTMLA11YCellClass *klass)
 }
 
 static void
-html_a11y_cell_init (HTMLA11YCell *a11y_cell)
+html_a11y_cell_init (HTMLA11YCell *a11y_cell, gpointer class_data)
 {
 }
 

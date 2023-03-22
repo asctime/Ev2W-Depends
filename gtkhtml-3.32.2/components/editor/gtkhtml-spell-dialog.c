@@ -337,7 +337,7 @@ spell_dialog_finalize (GObject *object)
 }
 
 static void
-spell_dialog_class_init (GtkhtmlSpellDialogClass *class)
+spell_dialog_class_init (GtkhtmlSpellDialogClass *class, gpointer class_data)
 {
 	GObjectClass *object_class;
 
@@ -412,7 +412,7 @@ spell_dialog_class_init (GtkhtmlSpellDialogClass *class)
 }
 
 static void
-spell_dialog_init (GtkhtmlSpellDialog *dialog)
+spell_dialog_init (GtkhtmlSpellDialog *dialog, gpointer class_data)
 {
 	GtkTreeSelection *selection;
 	GtkTreeViewColumn *column;

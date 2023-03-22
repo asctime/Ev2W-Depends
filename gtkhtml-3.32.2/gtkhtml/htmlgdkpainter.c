@@ -860,7 +860,7 @@ init_color (GdkColor *color, gushort red, gushort green, gushort blue)
 }
 
 static void
-html_gdk_painter_init (GObject *object)
+html_gdk_painter_init (GObject *object, gpointer class_data)
 {
 	HTMLPainter *painter;
 	HTMLGdkPainter *gdk_painter;
@@ -898,7 +898,7 @@ html_gdk_painter_real_set_widget (HTMLPainter *painter, GtkWidget *widget)
 }
 
 static void
-html_gdk_painter_class_init (GObjectClass *object_class)
+html_gdk_painter_class_init (GObjectClass *object_class, gpointer class_data)
 {
 	HTMLPainterClass *painter_class;
 

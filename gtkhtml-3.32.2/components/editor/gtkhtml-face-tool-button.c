@@ -430,7 +430,7 @@ face_tool_button_set_current_face (GtkhtmlFaceChooser *chooser,
 }
 
 static void
-face_tool_button_class_init (GtkhtmlFaceToolButtonClass *class)
+face_tool_button_class_init (GtkhtmlFaceToolButtonClass *class, gpointer class_data)
 {
 	GObjectClass *object_class;
 	GtkWidgetClass *widget_class;
@@ -503,14 +503,14 @@ face_tool_button_class_init (GtkhtmlFaceToolButtonClass *class)
 }
 
 static void
-face_tool_button_iface_init (GtkhtmlFaceChooserIface *iface)
+face_tool_button_iface_init (GtkhtmlFaceChooserIface *iface, gpointer class_data)
 {
 	iface->get_current_face = face_tool_button_get_current_face;
 	iface->set_current_face = face_tool_button_set_current_face;
 }
 
 static void
-face_tool_button_init (GtkhtmlFaceToolButton *button)
+face_tool_button_init (GtkhtmlFaceToolButton *button, gpointer class_data)
 {
 	GtkhtmlFaceChooser *chooser;
 	GtkWidget *toplevel;

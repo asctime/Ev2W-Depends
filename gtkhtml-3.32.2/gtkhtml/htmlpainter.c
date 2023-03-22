@@ -218,7 +218,7 @@ text_size (HTMLPainter *painter, PangoFontDescription *desc, const gchar *text, 
 }
 
 static void
-html_painter_class_init (GObjectClass *object_class)
+html_painter_class_init (GObjectClass *object_class, gpointer class_data)
 {
 	HTMLPainterClass *class;
 
