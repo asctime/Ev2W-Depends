@@ -31,8 +31,7 @@ static HTMLEmbeddedClass *parent_class = NULL;
 static void
 clear_paths (HTMLSelect *select)
 {
-	g_list_foreach (select->paths, (GFunc) gtk_tree_path_free, NULL);
-	g_list_free (select->paths);
+	g_list_free_full (select->paths, (GDestroyNotify)gtk_tree_path_free);
 	select->paths = NULL;
 }
 
