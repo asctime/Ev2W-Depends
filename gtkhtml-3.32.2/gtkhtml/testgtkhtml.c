@@ -1173,8 +1173,13 @@ motion_notify_event (GtkHTML *html, GdkEventMotion *event, gpointer data)
 	return FALSE;
 }
 
+#if defined(G_OS_WIN32) && defined (UNICODE)
+gint
+wmain (gint argc, gchar *argv[])
+#else
 gint
 main (gint argc, gchar *argv[])
+#endif
 {
 	GtkWidget *app, *bar, *main_table;
 	GtkWidget *html_widget;

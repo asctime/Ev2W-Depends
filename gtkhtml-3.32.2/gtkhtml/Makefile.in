@@ -280,6 +280,9 @@ am_testgtkhtml_OBJECTS = testgtkhtml.$(OBJEXT) htmlurl.$(OBJEXT)
 testgtkhtml_OBJECTS = $(am_testgtkhtml_OBJECTS)
 testgtkhtml_DEPENDENCIES = libgtkhtml-@GTKHTML_API_VERSION@.la \
 	$(am__DEPENDENCIES_1) $(am__DEPENDENCIES_1)
+testgtkhtml_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) \
+	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
+	$(testgtkhtml_LDFLAGS) $(LDFLAGS) -o $@
 DEFAULT_INCLUDES = -I.@am__isrc@ -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__depfiles_maybe = depfiles
@@ -504,6 +507,8 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 @OS_WIN32_FALSE@PLATFORM_DEP_SOURCES = 
 @OS_WIN32_TRUE@PLATFORM_DEP_SOURCES = dllmain.c
+@OS_WIN32_TRUE@PLATFORM_DEP_UNICODE_LFLAGS = -municode -mconsole
+@OS_WIN32_FALSE@PLATFORM_DEP_UNICODE = 
 NULL = 
 gtkhtml_data = $(datadir)/gtkhtml-@GTKHTML_API_VERSION@
 @HAVE_NEWSOUP_TRUE@have_new_soup = -DHAVE_NEWSOUP
@@ -702,10 +707,10 @@ csources = \
 @ENABLE_GTK3_FALSE@lib_LTLIBRARIES = libgtkhtml-3.14.la
 @ENABLE_GTK3_TRUE@lib_LTLIBRARIES = libgtkhtml-4.0.la
 @ENABLE_GTK3_TRUE@libgtkhtml_4_0_la_SOURCES = $(csources)
-@ENABLE_GTK3_TRUE@libgtkhtml_4_0_la_LDFLAGS = -version-info $(GTKHTML_GTK3_CURRENT):$(GTKHTML_GTK3_REVISION):$(GTKHTML_GTK3_AGE) -no-undefined
+@ENABLE_GTK3_TRUE@libgtkhtml_4_0_la_LDFLAGS = -version-info $(GTKHTML_GTK3_CURRENT):$(GTKHTML_GTK3_REVISION):$(GTKHTML_GTK3_AGE) -no-undefined -municode
 @ENABLE_GTK3_TRUE@libgtkhtml_4_0_la_LIBADD = $(GTKHTML_LIBS) ../a11y/libgtkhtml-a11y.la $(GAIL_LIBS) $(REGEX_LIBS)
 @ENABLE_GTK3_FALSE@libgtkhtml_3_14_la_SOURCES = $(csources)
-@ENABLE_GTK3_FALSE@libgtkhtml_3_14_la_LDFLAGS = -version-info $(GTKHTML_CURRENT):$(GTKHTML_REVISION):$(GTKHTML_AGE) -no-undefined
+@ENABLE_GTK3_FALSE@libgtkhtml_3_14_la_LDFLAGS = -version-info $(GTKHTML_CURRENT):$(GTKHTML_REVISION):$(GTKHTML_AGE) -no-undefined -municode
 @ENABLE_GTK3_FALSE@@HAVE_GCONF_FALSE@libgtkhtml_3_14_la_LIBADD = $(GTKHTML_LIBS) ../a11y/libgtkhtml-a11y.la $(GAIL_LIBS) $(REGEX_LIBS)
 @ENABLE_GTK3_FALSE@@HAVE_GCONF_TRUE@libgtkhtml_3_14_la_LIBADD = $(GTKHTML_LIBS) $(GCONF_LIBS) ../a11y/libgtkhtml-a11y.la $(GAIL_LIBS) -lfribidi $(REGEX_LIBS)
 @HAVE_SOUP_TRUE@test_programs = testgtkhtml
@@ -715,6 +720,7 @@ testgtkhtml_SOURCES = \
 	htmlurl.c
 
 #testgtkhtml_LDFLAGS = -static
+testgtkhtml_LDFLAGS = $(PLATFORM_DEP_UNICODE_LFLAGS)
 testgtkhtml_LDADD = \
 	libgtkhtml-@GTKHTML_API_VERSION@.la			\
 	$(GTKHTML_LIBS)					\
@@ -849,7 +855,7 @@ test-suite$(EXEEXT): $(test_suite_OBJECTS) $(test_suite_DEPENDENCIES) $(EXTRA_te
 	$(AM_V_CCLD)$(test_suite_LINK) $(test_suite_OBJECTS) $(test_suite_LDADD) $(LIBS)
 testgtkhtml$(EXEEXT): $(testgtkhtml_OBJECTS) $(testgtkhtml_DEPENDENCIES) $(EXTRA_testgtkhtml_DEPENDENCIES) 
 	@rm -f testgtkhtml$(EXEEXT)
-	$(AM_V_CCLD)$(LINK) $(testgtkhtml_OBJECTS) $(testgtkhtml_LDADD) $(LIBS)
+	$(AM_V_CCLD)$(testgtkhtml_LINK) $(testgtkhtml_OBJECTS) $(testgtkhtml_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)

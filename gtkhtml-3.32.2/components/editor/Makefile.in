@@ -106,7 +106,7 @@ am__installdirs = "$(DESTDIR)$(libdir)" \
 	"$(DESTDIR)$(libgtkhtml_editordir)"
 LTLIBRARIES = $(lib_LTLIBRARIES) \
 	$(libglade_gtkhtml_editor_LTLIBRARIES)
-libglade_gtkhtml_editor_la_DEPENDENCIES =
+@GLADE_CATALOG_TRUE@libglade_gtkhtml_editor_la_DEPENDENCIES = $(top_builddir)/gtkhtml/libgtkhtml-@EDITOR_API_VERSION@.la
 am__libglade_gtkhtml_editor_la_SOURCES_DIST = gtkhtml-color-combo.c \
 	gtkhtml-color-palette.c gtkhtml-color-state.c \
 	gtkhtml-color-swatch.c gtkhtml-combo-box.c
@@ -526,7 +526,9 @@ DISTCLEANFILES = $(pkgconfig_DATA)
 @GLADE_CATALOG_TRUE@	gtkhtml-combo-box.c
 
 @GLADE_CATALOG_TRUE@libglade_gtkhtml_editor_la_LDFLAGS = -module -avoid-version -no-undefined
-@GLADE_CATALOG_TRUE@libglade_gtkhtml_editor_la_LIBADD = @GTKHTML_CFLAGS@
+@GLADE_CATALOG_TRUE@libglade_gtkhtml_editor_la_LIBADD = @GTKHTML_CFLAGS@ @GTKHTML_LIBS@ \
+@GLADE_CATALOG_TRUE@	$(top_builddir)/gtkhtml/libgtkhtml-@EDITOR_API_VERSION@.la
+
 all: $(BUILT_SOURCES)
 	$(MAKE) $(AM_MAKEFLAGS) all-am
 

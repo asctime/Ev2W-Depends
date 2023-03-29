@@ -153,13 +153,13 @@ CATALOGS =
 CATOBJEXT = .gmo
 CC = gcc
 CCDEPMODE = depmode=gcc3
-CFLAGS = -D__USE_MINGW_ANSI_STDIO=1 -D_POSIX_C_SOURCE -Wno-deprecated -Wno-deprecated-declarations -DGLIB_DISABLE_DEPRECATION_WARNINGS -O2 -mms-bitfields -pipe -mtune=sandybridge -fomit-frame-pointer -DWIN32 -DWIN64 -m64 -D_WIN32_WINNT=0x0501 -DWINVER=0x0501 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -MD -MT -fasynchronous-unwind-tables -fexceptions   -DG_DISABLE_DEPRECATED -DPANGO_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED -DGNOME_DISABLE_DEPRECATED    -DG_DISABLE_SINGLE_INCLUDES -DGTK_DISABLE_SINGLE_INCLUDES -Wall -Wextra -Wno-missing-field-initializers -Wno-sign-compare -Wno-unused-parameter -Wdeclaration-after-statement -Werror-implicit-function-declaration -Wformat-nonliteral -Wformat-security -Winit-self -Wmissing-declarations -Wmissing-include-dirs -Wmissing-noreturn -Wnested-externs -Wpointer-arith -Wredundant-decls -Wundef -Wwrite-strings -fno-strict-aliasing
+CFLAGS = -D__USE_MINGW_ANSI_STDIO=1 -D_POSIX_C_SOURCE -Wno-deprecated -Wno-deprecated-declarations -DGLIB_DISABLE_DEPRECATION_WARNINGS -O2 -mms-bitfields -pipe -mtune=sandybridge -fomit-frame-pointer -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -m64 -D_WIN32_WINNT=0x0501 -DWINVER=0x0501 -D_FORTIFY_SOURCE=2 -fstack-protector-strong -MD -MT -fasynchronous-unwind-tables -fexceptions   -DG_DISABLE_DEPRECATED -DPANGO_DISABLE_DEPRECATED -DGDK_PIXBUF_DISABLE_DEPRECATED -DGTK_DISABLE_DEPRECATED -DGNOME_DISABLE_DEPRECATED    -DG_DISABLE_SINGLE_INCLUDES -DGTK_DISABLE_SINGLE_INCLUDES -Wall -Wextra -Wno-missing-field-initializers -Wno-sign-compare -Wno-unused-parameter -Wdeclaration-after-statement -Werror-implicit-function-declaration -Wformat-nonliteral -Wformat-security -Winit-self -Wmissing-declarations -Wmissing-include-dirs -Wmissing-noreturn -Wnested-externs -Wpointer-arith -Wredundant-decls -Wundef -Wwrite-strings -fno-strict-aliasing
 CPP = gcc -E
-CPPFLAGS = -D__USE_MINGW_ANSI_STDIO=1 -D_POSIX_C_SOURCE -Wno-deprecated -Wno-deprecated-declarations -DGLIB_DISABLE_DEPRECATION_WARNINGS -O2 -mms-bitfields -pipe -fomit-frame-pointer -mtune=sandybridge -DWIN32 -DWIN64 -m64 -D_WIN32_WINNT=0x0501 -DWINVER=0x0501 -D_FORTIFY_SOURCE=2 -MD -MT -fstack-protector-strong -fasynchronous-unwind-tables -fexceptions
+CPPFLAGS = -D__USE_MINGW_ANSI_STDIO=1 -D_POSIX_C_SOURCE -Wno-deprecated -Wno-deprecated-declarations -DGLIB_DISABLE_DEPRECATION_WARNINGS -O2 -mms-bitfields -pipe -fomit-frame-pointer -mtune=sandybridge -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -m64 -D_WIN32_WINNT=0x0501 -DWINVER=0x0501 -D_FORTIFY_SOURCE=2 -MD -MT -fstack-protector-strong -fasynchronous-unwind-tables -fexceptions
 CXX = g++
 CXXCPP = g++ -E
 CXXDEPMODE = depmode=gcc3
-CXXFLAGS = -D__USE_MINGW_ANSI_STDIO=1 -D_POSIX_C_SOURCE -D_FORTIFY_SOURCE=2 -Wno-deprecated -Wno-deprecated-declarations -DGLIB_DISABLE_DEPRECATION_WARNINGS -O2 -mms-bitfields -pipe -fomit-frame-pointer -mtune=sandybridge -DWIN32 -DWIN64 -m64 -std=iso9899:1990 -D_WIN32_WINNT=0x0501 -DWINVER=0x0501 -MD -MT -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fasynchronous-unwind-tables -fexceptions
+CXXFLAGS = -D__USE_MINGW_ANSI_STDIO=1 -D_POSIX_C_SOURCE -D_FORTIFY_SOURCE=2 -Wno-deprecated -Wno-deprecated-declarations -DGLIB_DISABLE_DEPRECATION_WARNINGS -O2 -mms-bitfields -pipe -fomit-frame-pointer -mtune=sandybridge -DUNICODE -D_UNICODE -DWIN32 -DWIN64 -m64 -std=iso9899:1990 -D_WIN32_WINNT=0x0501 -DWINVER=0x0501 -MD -MT -fstack-protector-strong -D_FORTIFY_SOURCE=2 -fasynchronous-unwind-tables -fexceptions
 CYGPATH_W = cygpath -w
 DATADIRNAME = share
 DEFS = -DHAVE_CONFIG_H
@@ -180,8 +180,8 @@ GAIL_MODULES = gail >= 2.20.0
 GCONF_CFLAGS = -ID:/MSYS2/mingw64/bin/../include/gconf/2 -ID:/MSYS2/mingw64/bin/../include/glib-2.0 -ID:/MSYS2/mingw64/bin/../lib/glib-2.0/include -ID:/MSYS2/mingw64/bin/../include -ID:/MSYS2/mingw64/bin/../include/dbus-1.0 -ID:/MSYS2/mingw64/bin/../lib/dbus-1.0/include -mms-bitfields -ID:/MSYS2/mingw64/bin/../lib/libffi-3.2.1/include 
 GCONF_LIBS = -LD:/MSYS2/mingw64/bin/../lib -lgconf-2 -lglib-2.0 -lintl 
 GETTEXT_PACKAGE = gtkhtml-3.14
-GLADEUI_CFLAGS = 
-GLADEUI_LIBS = 
+GLADEUI_CFLAGS = -ID:/MSYS2/mingw64/bin/../include/libgladeui-1.0 -ID:/MSYS2/mingw64/bin/../include/gtk-2.0 -ID:/MSYS2/mingw64/bin/../lib/gtk-2.0/include -ID:/MSYS2/mingw64/bin/../include/pango-1.0 -ID:/MSYS2/mingw64/bin/../include -ID:/MSYS2/mingw64/bin/../include/glib-2.0 -ID:/MSYS2/mingw64/bin/../lib/glib-2.0/include -ID:/MSYS2/mingw64/bin/../lib/libffi-3.2.1/include -ID:/MSYS2/mingw64/bin/../include/harfbuzz -ID:/MSYS2/mingw64/bin/../include/fribidi -ID:/MSYS2/mingw64/bin/../include/freetype2 -ID:/MSYS2/mingw64/bin/../include/libpng16 -ID:/MSYS2/mingw64/bin/../include/cairo -ID:/MSYS2/mingw64/bin/../include/lzo -ID:/MSYS2/mingw64/bin/../include/pixman-1 -ID:/MSYS2/mingw64/bin/../include/gdk-pixbuf-2.0 -ID:/MSYS2/mingw64/bin/../include/atk-1.0 -mms-bitfields -ID:/MSYS2/mingw64/bin/../include/libxml2 
+GLADEUI_LIBS = -LD:/MSYS2/mingw64/bin/../lib -lgladeui-1 -lgtk-win32-2.0 -lgdk-win32-2.0 -limm32 -lshell32 -lole32 -Wl,-luuid -lpangowin32-1.0 -lpangocairo-1.0 -lpango-1.0 -lharfbuzz -lgdi32 -lmsimg32 -latk-1.0 -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lgobject-2.0 -lglib-2.0 -lintl -lxml2 
 GLIB_GENMARSHAL = /MSYS2/mingw64/bin/glib-genmarshal
 GMOFILES = 
 GMSGFMT = /MSYS2/mingw64/bin/msgfmt

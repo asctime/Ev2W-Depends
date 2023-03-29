@@ -140,7 +140,8 @@ libglade_gtkhtml_editor_la_SOURCES = \
 
 libglade_gtkhtml_editor_la_LDFLAGS = -module -avoid-version -no-undefined
 
-libglade_gtkhtml_editor_la_LIBADD = @GTKHTML_CFLAGS@
+libglade_gtkhtml_editor_la_LIBADD = @GTKHTML_CFLAGS@ @GTKHTML_LIBS@ \
+	$(top_builddir)/gtkhtml/libgtkhtml-@EDITOR_API_VERSION@.la
 
 endif
 
