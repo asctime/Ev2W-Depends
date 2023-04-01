@@ -76,11 +76,11 @@
     #endif
     #ifndef __MINGW32__
         #define size_t     __int64
+        #define PRIx64 "I64x"
     #endif
     #ifndef UINT64_MAX
         #define UINT64_MAX ((uint64_t)0xffffffffffffffff)
     #endif
-    #define PRIx64 "I64x"
     int __cdecl _fseeki64(FILE *, __int64, int);
     __int64 __cdecl _ftelli64(FILE *);
 
