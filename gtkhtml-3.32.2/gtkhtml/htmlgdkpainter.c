@@ -464,9 +464,11 @@ draw_background (HTMLPainter *painter,
 					      paint.x - (tile_x % pw) - clip.x,
 					      paint.y - (tile_y % ph) - clip.y);
 
+#ifndef G_OS_WIN32  /* FIXME Sorry you are not GDC safe.  */
 			gdk_draw_rectangle (gdk_painter->pixmap, gc, TRUE,
 					    paint.x - clip.x, paint.y - clip.y,
 					    paint.width, paint.height);
+#endif
 
 			g_object_unref (pixmap);
 			g_object_unref (gc);

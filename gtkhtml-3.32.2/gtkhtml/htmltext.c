@@ -3125,8 +3125,8 @@ spell_error_destroy (SpellError *se)
 void
 html_text_spell_errors_clear (HTMLText *text)
 {
-	g_list_foreach (text->spell_errors, (GFunc) spell_error_destroy, NULL);
-	g_list_free    (text->spell_errors);
+	g_list_free_full (text->spell_errors,
+    (GDestroyNotify)spell_error_destroy);
 	text->spell_errors = NULL;
 }
 
